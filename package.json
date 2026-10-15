@@ -1,0 +1,74 @@
+{
+  "name": "tailwindcss-squircles",
+  "version": "0.1.0",
+  "description": "Tailwind CSS v4 plugin that turns every rounded-* utility into a compensated squircle with CSS corner-shape as a seamless progressive enhancement.",
+  "keywords": [
+    "tailwindcss",
+    "tailwindcss-plugin",
+    "tailwind",
+    "squircle",
+    "superellipse",
+    "corner-shape",
+    "border-radius",
+    "progressive-enhancement"
+  ],
+  "homepage": "https://github.com/jespervos/tailwindcss-squircles#readme",
+  "bugs": "https://github.com/jespervos/tailwindcss-squircles/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jespervos/tailwindcss-squircles.git"
+  },
+  "license": "MIT",
+  "author": "Jesper Vos <jespervos56@gmail.com>",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check:package": "publint && attw --pack . --profile node16",
+    "prepublishOnly": "pnpm typecheck && pnpm test && pnpm build"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@types/node": "^26.6.5",
+    "prettier": "^3.9.10",
+    "publint": "^0.3.25",
+    "tailwindcss": "^4.2.2",
+    "tsdown": "^0.23.1",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.4"
+  },
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
