@@ -1,6 +1,6 @@
 # tailwindcss-squircles
 
-A Tailwind CSS v4 plugin that progressively enhances rounded corners with squircles with the CSS `[corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape)` property.
+A Tailwind CSS v4 plugin that progressively enhances rounded corners with squircles with the CSS [`corner-shape`](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape) property.
 
 Adding `corner-shape: squircle` on its own makes every corner noticeably sharper, because a squircle cuts less deeply into the corner than a circle with the same radius. This plugin multiplies the radius by the exact amount that evens it out (about 1.841 for a squircle).
 
