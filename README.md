@@ -1,17 +1,10 @@
 # tailwindcss-squircles
 
-A Tailwind CSS v4 plugin that turns every `rounded-*` utility into a squircle with the CSS [`corner-shape`](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape) property. Browsers without support keep their regular `border-radius`.
-
-Your markup doesn't change:
-
-```html
-<div class="rounded-xl"></div>
-```
-
-- **Supporting browsers** draw a squircle. The radius is compensated, so the corner is as deep as the circle it replaces.
-- **Everything else** draws the same rounded corner as before.
+A Tailwind CSS v4 plugin that progressively enhances rounded corners with squircles with the CSS `[corner-shape](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape)` property.
 
 Adding `corner-shape: squircle` on its own makes every corner noticeably sharper, because a squircle cuts less deeply into the corner than a circle with the same radius. This plugin multiplies the radius by the exact amount that evens it out (about 1.841 for a squircle).
+
+Read my article on [Squircles](https://jespervos.com/craft/squircles) for a deeper look into the math and logic behind this plugin.
 
 ## Install
 
@@ -67,8 +60,8 @@ Use the `corner-*` utilities next to a `rounded-*` class to change the shape of 
 | Class                     | Shape               | Radius multiplier |
 | ------------------------- | ------------------- | ----------------- |
 | `corner-round`            | `round`             | 1                 |
-| `corner-squircle`         | `squircle`          | about 1.841       |
-| `corner-bevel`            | `bevel`             | about 0.586       |
+| `corner-squircle`         | `squircle`          | ~1.841            |
+| `corner-bevel`            | `bevel`             | ~0.586            |
 | `corner-scoop`            | `scoop`             | 1                 |
 | `corner-notch`            | `notch`             | 1                 |
 | `corner-square`           | `square`            | 1                 |
@@ -90,17 +83,12 @@ That is how far the circle's diagonal point sits from the corner, divided by the
 
 ## Browser support
 
-`corner-shape` shipped in Chrome 139. Other browsers ignore it, and the `@supports` rule keeps the original radius there. Check [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape#browser_compatibility) for the current state.
+| Browser       | `corner-shape`                                                                                                                                                |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Chrome / Edge | Shipped in 139 (August 2025)                                                                                                                                  |
+| Safari        | In [Safari Technology Preview 251](https://webkit.org/blog/18194/release-notes-for-safari-technology-preview-251/) (August 2026), not yet in a stable release |
 
-## Development
-
-```bash
-pnpm install
-pnpm test        # runs the plugin through Tailwind's compiler
-pnpm typecheck
-pnpm build       # ESM + CJS + types in dist/
-pnpm check:package
-```
+Check [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/corner-shape#browser_compatibility) for the current state.
 
 ## License
 
